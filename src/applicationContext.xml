@@ -9,7 +9,19 @@
 
 	<!-- Define our beans here -->
 	<bean id ="myCoach" 
-		  class = "com.udemy.SpringDemo.BaseballCoach">
+		  class = "com.udemy.SpringDemo.TrackCoach">
+		  <!-- set up construction argument-->
+		  <constructor-arg ref="myFortuneService"/>
+	</bean>
+	
+	<bean id = "myFortuneService"
+		class = "com.udemy.SpringDemo.HappyFortuneService">
+	</bean>
+	
+	<bean id="myCricketCoach"
+		class="com.udemy.SpringDemo.CricketCoach">
+		<!-- set up the setter injection-->
+		<property name="fortuneService" ref="myFortuneService"></property>
 	</bean>
 	
 	<!-- Add a logger config to see logging messages.-->
